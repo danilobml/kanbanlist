@@ -1,9 +1,19 @@
-/* Set border-box */
-html{ 
+/* Setting border-box styling default*/
+html {
     box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-     box-sizing:inherit;
-}
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  /* Complete and deete icons */
+  svg {
+    max-width: 10px;
+  }
+  
+  li {
+    display: inline;
+  }
+  

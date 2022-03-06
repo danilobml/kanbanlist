@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/reset.css">
-    <link rel="stylesheet" href="/src/css/styles.css">
-    <script defer src="/src/js/script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/reset.css" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
     <title>Kanbanlist</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <!--Title-->
+    <h1>Kanban List</h1>
+    <!--Main Container-->
+    <div class="container">
+        <!--To insert new tasks-->
+        <form id="new-form">
+        <input id="new-input" type="text" placeholder="Insert new task:" />
+        <button id="addbutton" type="submit">+</button>
+      </form>
+      <!--List of to do tasks-->
+      <div>
+        <h2>To do Tasks:</h2>
+        <p>(click on the task to edit)</p>
+        <ul id="tasks"></ul>
+      </div>
+      <!--List of completed tasks-->
+      <div>
+        <h2>Completed Tasks:</h2>
+        <ul id="comp-tasks"></ul>
+      </div>
+    </div>
+    <!--Button to clear completed tasks-->
+    <button id="clear">Clear</button>
+
+    <script src="/src/js/script.js"></script>
+  </body>
 </html>
