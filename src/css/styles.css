@@ -1,5 +1,5 @@
 /* Setting border-box styling default*/
-html {
+/*html {
     box-sizing: border-box;
   }
   *,
@@ -7,13 +7,71 @@ html {
   *:after {
     box-sizing: inherit;
   }
-  
-  /* Complete and deete icons */
-  svg {
-    max-width: 10px;
+*/
+
+/* Complete and deete icons sizes*/
+svg {
+  max-width: 10px;
+}
+
+/* 
+
+.container {
+  padding: 2%;
+  min-height: 30vh;
+  min-width: 30vw;
+  width: auto;
+  height: auto;
+  border-radius: 5%;
+}
+
+ .category {
+    background-color: blue;
+    padding: 2%;
+    min-width: 30vw;
+    width: auto;
+    height: 30px;
+    border-radius: 5%;
   }
-  
+
+  h2 {
+    color: white;
+  }
+
+ ul {
+  display: flex;
+  flex-direction: column;
+}
+
   li {
-    display: inline;
+    /* border: solid 2px rgb(202, 193, 193); 
+    width: 100%;
+    margin-bottom: 20px;
   }
-  
+
+/*Daniel*/
+/* 
+ .buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+  button {
+    font-size: 6px;
+  }
+
+  #clear {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  #add {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    display: flex;
+  }
+   */

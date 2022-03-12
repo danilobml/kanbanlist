@@ -23,12 +23,16 @@ function deleteTask(event) {
 
 /* Function that sends complete tasks to the "Completed Tasks" list when complete button (checkmark icon) is pressed */
 function completeTask(event) {
-  const target = event.currentTarget.closest("li");
-  let nameOfTask = target.querySelector(".task-text").innerText;
-  if (nameOfTask.textContent) {
+  // console.log("here");
+  const targetLi = event.currentTarget.closest("li"); // html element
+  let nameOfTask = targetLi.querySelector(".task-text").innerText; // string
+
+  if (nameOfTask) {
     completeTasks.innerHTML += `${nameOfTask} ${tick}<br>`;
   }
-  taskList.removeChild(target);
+
+  taskList.removeChild(targetLi);
+  // console.log("there");
 }
 
 /* Function to assign complete and delete buttons (icons) to each new task */
@@ -47,9 +51,9 @@ const addTask = (event) => {
   if (newInput.value) {
     const todoTaskTemplate = `
         <li data-id=${Date.now().toString()}>
-        <span class= "task-text" contenteditable>${newInput.value}</span>
-        <span class="complete">${tick}</span>
-        <span class="delete">${trash}</span><br>
+          <span class= "task-text" contenteditable>${newInput.value}</span>
+          <span class="complete">${tick}</span>
+          <span class="delete">${trash}</span><br>
         </li>
     `;
     taskList.innerHTML += todoTaskTemplate;
@@ -61,7 +65,7 @@ const addTask = (event) => {
 /* Event listener for add button */
 buttonAdd.onclick = addTask;
 
-/* Functionality of button that slears completed tasks */ 
+/* Functionality of button that slears completed tasks */
 function clearCompletedTasks() {
   completeTasks.innerHTML = "";
 }
