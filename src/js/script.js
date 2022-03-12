@@ -25,7 +25,7 @@ function deleteTask(event) {
 function completeTask(event) {
   const target = event.currentTarget.closest("li");
   let nameOfTask = target.querySelector(".task-text").innerText;
-  if (nameOfTask.textContent !== "") {
+  if (nameOfTask.textContent) {
     completeTasks.innerHTML += `${nameOfTask} ${tick}<br>`;
   }
   taskList.removeChild(target);
@@ -43,13 +43,13 @@ function applyEventListenersToTasks() {
 
 /* Function to add a new task when add button is pressed */
 const addTask = (event) => {
+  event.preventDefault();
   if (newInput.value) {
-    event.preventDefault();
     const todoTaskTemplate = `
         <li data-id=${Date.now().toString()}>
-        <spam class= "task-text" contenteditable="true">${newInput.value}</spam>
-        <spam class="complete">${tick}</spam>
-        <spam class="delete">${trash}</spam><br>
+        <span class= "task-text" contenteditable>${newInput.value}</span>
+        <span class="complete">${tick}</span>
+        <span class="delete">${trash}</span><br>
         </li>
     `;
     taskList.innerHTML += todoTaskTemplate;
