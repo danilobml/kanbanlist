@@ -34,6 +34,7 @@ if (localStorage.getItem(APP_NAME)) {
 /* Function that excludes to do tasks when delete button (thrash icon) is pressed */
 function deleteTask(event) {
   const target = event.currentTarget.closest("li");
+  getTaskId(target);
   taskList.removeChild(target);
 }
 
@@ -127,4 +128,52 @@ function clearTasks(element) {
 // What if a task was completed when the user arrives on the page? task will be back to to do
 
 /* Event listener for clear button */
-clear.onclick = clearCompletedTasks;
+// clear.onclick = clearCompletedTasks;
+
+// function deleteTaskFromStorage (event) {
+
+// }
+
+function getTaskId(target) {
+  const liId = target.getAttribute("data-id");
+  console.log(liId);
+  deleteFromArray(liId);
+}
+
+function deleteFromArray (liId) {
+  tasks.forEach((task)=>{
+    for(let i = 0; i < tasks.length; i++){ 
+      if (task.getAttribute('data.id') === liId) { 
+          task.splice(i, 1); 
+      }
+      cleanSaveAndRender()
+  }
+})
+
+// tasks= localStorage.removeItem
+
+/* 
+function deleteTasksFromLocalStorage() {
+  localStorage.removeItem(APP_NAME, JSON.stringify(tasks));
+} */
+
+// /* function deleteTask(event) {
+//   const target = event.currentTarget.closest("li");
+//   taskList.removeChild(target);
+// }
+
+//   for (const deleteButton of deleteButtons) {
+//     deleteButton.onclick = deleteTask;
+//   }
+
+// */
+
+
+//if (localStorage.getItem(APP_NAME)) {
+  // 2. If there's something, parse it back into a js array, and inject that into the tasks array
+  // const locallyStoredTasks = localStorage.getItem(APP_NAME)
+  // const parsedLocallyStoredTasks = JSON.parse(locallyStoredTasks)
+  // tasks = parsedLocallyStoredTasks
+
+  //tasks = JSON.parse(localStorage.getItem(APP_NAME));
+}
