@@ -15,11 +15,19 @@ const tick = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><pat
 /* Selector for clear button*/
 const clear = document.getElementById("clear");
 
+/* Event listener for clear button */
+clear.onclick = clearCompletedTasks;
+
+/* Functionality of button that clears completed tasks */
+function clearCompletedTasks() {
+  const newArr = tasks.filter((task) => task.complete === false)
+  tasks = newArr;
+  cleanSaveAndRender();
+}
+
 const APP_NAME = "WBSKanbanList"; // screaming snake case for "true" constants
 
 let tasks = [];
-
-// console.log(typeof localStorage.getItem(APP_NAME));
 
 // 1. Check if there's anything inside the local storage with our namespace
 if (localStorage.getItem(APP_NAME)) {
@@ -34,22 +42,22 @@ if (localStorage.getItem(APP_NAME)) {
 /* Function that excludes to do tasks when delete button (thrash icon) is pressed */
 function deleteTask(event) {
   const target = event.currentTarget.closest("li");
-  getTaskId(target);
-  taskList.removeChild(target);
-}
+  const liId = target.getAttribute("data-id");  
+  for (i=0; i<tasks.length; i++) {
+      if (tasks[i].id === liId) {
+        tasks.splice(i, 1);}
+      cleanSaveAndRender();
+    }
+  };
 
 /* Function that sends complete tasks to the "Completed Tasks" list when complete button (checkmark icon) is pressed */
 function completeTask(event) {
-  // console.log("here");
-  const targetLi = event.currentTarget.closest("li"); // html element
-  let nameOfTask = targetLi.querySelector(".task-text").innerText; // string
-
-  if (nameOfTask) {
-    completeTasks.innerHTML += `${nameOfTask} ${tick}<br>`;
-  }
-
-  taskList.removeChild(targetLi);
-  // console.log("there");
+  const target = event.currentTarget.closest("li"); 
+  const liId = target.getAttribute("data-id");
+  for (i=0; i<tasks.length; i++) {
+    if (tasks[i].id === liId) {
+      tasks[i].complete=true;}};
+      cleanSaveAndRender();
 }
 
 /* Function to assign complete and delete buttons (icons) to each new task */
@@ -62,19 +70,22 @@ function applyEventListenersToTasks() {
   }
 }
 
-/* Function to add a new task when add button is pressed */
+/* Group of functions to add a new task when add button is pressed */
 const addTask = (task) => {
-  // if task is ongoing:
+  
   const todoTaskTemplate = `
         <li data-id=${task.id}>
-          <span class= "task-text" contenteditable>${task.name}</span>
+          <span class= "task-text text-dark" contenteditable>${task.name}</span>
           <span class="complete">${tick}</span>
           <span class="delete">${trash}</span><br>
         </li>
     `;
-  taskList.innerHTML += todoTaskTemplate;
-  applyEventListenersToTasks();
-  // else attach it to the completed tasks container
+  if (task.complete === false){
+    taskList.innerHTML += todoTaskTemplate;
+    applyEventListenersToTasks();
+  } else {
+    completeTasks.innerHTML += `${task.name}<br>`;
+  }
 };
 
 function handleAddTask(event) {
@@ -83,12 +94,15 @@ function handleAddTask(event) {
     tasks.push({
       id: Date.now().toString(),
       name: newInput.value,
+      complete: false,
     });
     cleanSaveAndRender();
     newInput.value = "";
   }
 }
 
+
+// Group of functions handling Saving in 
 function saveTasksToLocalStorage() {
   localStorage.setItem(APP_NAME, JSON.stringify(tasks));
 }
@@ -99,6 +113,7 @@ function renderTasks() {
 
 function cleanSaveAndRender() {
   clearTasks(taskList);
+  clearTasks(completeTasks)
   saveTasksToLocalStorage();
   renderTasks();
 }
@@ -108,72 +123,9 @@ renderTasks();
 /* Event listener for add button */
 buttonAdd.onclick = handleAddTask;
 
-/* Functionality of button that clears completed tasks */
-function clearCompletedTasks() {
-  completeTasks.innerHTML = "";
-}
 
 function clearTasks(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
-}
-
-// Delete a task from the localStorage
-// 1. figure out what's the data-id attribute attached to the parent of the delete button
-// 2. .filter the tasks array with the task's id
-// 3. cleanSaveAndRender()
-
-// For later:
-// What if a task was completed when the user arrives on the page? task will be back to to do
-
-/* Event listener for clear button */
-// clear.onclick = clearCompletedTasks;
-
-// function deleteTaskFromStorage (event) {
-
-// }
-
-function getTaskId(target) {
-  const liId = target.getAttribute("data-id");
-  console.log(liId);
-  deleteFromArray(liId);
-}
-
-function deleteFromArray (liId) {
-  tasks.forEach((task)=>{
-    for(let i = 0; i < tasks.length; i++){ 
-      if (task.getAttribute('data.id') === liId) { 
-          task.splice(i, 1); 
-      }
-      cleanSaveAndRender()
-  }
-})
-
-// tasks= localStorage.removeItem
-
-/* 
-function deleteTasksFromLocalStorage() {
-  localStorage.removeItem(APP_NAME, JSON.stringify(tasks));
-} */
-
-// /* function deleteTask(event) {
-//   const target = event.currentTarget.closest("li");
-//   taskList.removeChild(target);
-// }
-
-//   for (const deleteButton of deleteButtons) {
-//     deleteButton.onclick = deleteTask;
-//   }
-
-// */
-
-
-//if (localStorage.getItem(APP_NAME)) {
-  // 2. If there's something, parse it back into a js array, and inject that into the tasks array
-  // const locallyStoredTasks = localStorage.getItem(APP_NAME)
-  // const parsedLocallyStoredTasks = JSON.parse(locallyStoredTasks)
-  // tasks = parsedLocallyStoredTasks
-
-  //tasks = JSON.parse(localStorage.getItem(APP_NAME));
 }
