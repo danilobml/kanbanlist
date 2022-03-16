@@ -95,8 +95,6 @@ function editText(event) {
   const liId = target.getAttribute("data-id");
   newValue = target.innerText;
   saveEdit(newValue, liId);
-  console.log(newValue);
-  console.log(liId);
 }
 
 function saveEdit (newValue, liId) {  
@@ -162,5 +160,5 @@ function cleanSaveAndRender() {
   renderTasks();
 }
 
-//Initial page loading
+//Initial render of task lists at page loading
 renderTasks();
