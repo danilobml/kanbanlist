@@ -11,8 +11,20 @@
 
 /* Complete and deete icons sizes*/
 svg {
-  max-width: 12px;
+  max-width: 11px;
   cursor: pointer;
+}
+
+.save {
+  background-color: blue;
+}
+
+.delete {
+  color: red;
+}
+
+.complete {
+  color: greenyellow;
 }
 
 /* 
