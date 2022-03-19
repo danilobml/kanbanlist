@@ -1,22 +1,6 @@
-/* Setting border-box styling default*/
-/*html {
-    box-sizing: border-box;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-*/
-
-/* Complete and deete icons sizes*/
 svg {
-  max-width: 11px;
+  max-width: 14px;
   cursor: pointer;
-}
-
-.save {
-  background-color: blue;
 }
 
 .delete {
@@ -27,64 +11,13 @@ svg {
   color: greenyellow;
 }
 
-/* 
-
-.container {
-  padding: 2%;
-  min-height: 30vh;
-  min-width: 30vw;
-  width: auto;
-  height: auto;
-  border-radius: 5%;
+@media screen and (min-width: 756px) {
+  /* :root {
+    font-size: 20px;
+  } */
+  svg {
+    height: 20px;
+    max-width: 30px;
+    cursor: pointer;
+  }
 }
-
- .category {
-    background-color: blue;
-    padding: 2%;
-    min-width: 30vw;
-    width: auto;
-    height: 30px;
-    border-radius: 5%;
-  }
-
-  h2 {
-    color: white;
-  }
-
- ul {
-  display: flex;
-  flex-direction: column;
-}
-
-  li {
-    /* border: solid 2px rgb(202, 193, 193); 
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-/*Daniel*/
-/* 
- .buttons {
-  display: flex;
-  flex-direction: row;
-}
-
-  button {
-    font-size: 6px;
-  }
-
-  #clear {
-    font-size: 12px;
-    width: 100%;
-  }
-
-  #add {
-    font-size: 12px;
-    width: 100%;
-  }
-
-  input {
-    width: 100%;
-    display: flex;
-  }
-   */

@@ -12,39 +12,43 @@
     <title>Kanbanlist</title>
   </head>
   <body>
-    <!--Title-->
     <!--Main Container-->
-    <div class="container">
-      <h1 class="text-center">Kanban List</h1>
-      <!--To insert new tasks-->
+    <div class="container p-4 border rounded-3 bg-light">
+      <!--Title-->
+      <h1 class="text-center display-5 display-md-3 fw-bold">Kanban List</h1>
+
+      <!--Input form to insert new tasks-->
       <form id="new-form">
         <div class="input-group">
-          <input id="new-input" class="form-control" type="text" placeholder="Insert new task:" />
+          <input id="new-input" class="form-control fs-4" type="text" placeholder="Insert new task:" />
           <button id="addbutton" class="btn btn-danger" type="submit">+</button>
         </div>
       </form>
 
-      <!--List of to do tasks-->
+      <!--Lists of to do, ongoing and completed tasks-->
+      <p class="text-dark h5">(Click on the active tasks to edit them:)</p>
       <div class="row">
-        <div class="col-sm-12 col-md-6 mt-2">
-          <h3 class="text-dark">To do Tasks:</h3>
-          <p class="text-dark">(Click on the task to edit)</p>
+        <div class="col-sm-12 col-md-4 mt-2">
+          <h3 class="text-dark h2 fw-bold">To do Tasks:</h3>
           <ul id="tasks"></ul>
         </div>
-        <div class="col-sm-12 col-md-6 mt-2">
-          <h3 class="text-dark">Completed Tasks:</h3>
+        <div class="col-sm-12 col-md-4 mt-2">
+          <h3 class="text-dark h2 fw-bold">Ongoing Tasks:</h3>
+          <ul id="tasks-ongoing"></ul>
+        </div>
+        <div class="col-sm-12 col-md-4 mt-2">
+          <h3 class="text-dark h2 fw-bold">Completed Tasks:</h3>
           <ul id="comp-tasks"></ul>
         </div>
       </div>
 
+      <!--Clear Completed Button-->
       <div class="row">
         <div class="col"></div>
         <div class="col">
-          <button id="clear" class="btn btn-danger">Clear</button>
+          <button id="clear" class="col btn-sm btn-success fs-6">Clear completed</button>
         </div>
       </div>
-
-      <!--List of completed tasks-->
     </div>
   </body>
 </html>
