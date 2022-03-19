@@ -1,3 +1,30 @@
+body {
+  background-image: url("https://th.bing.com/th/id/R.0f0435d4087fd0a414f1a8fa8d86cafb?rik=oZKlVNgFZIGznA&riu=http%3a%2f%2ffc00.deviantart.net%2ffs15%2ff%2f2007%2f059%2f1%2f9%2fCorkboard_Wood_Cork_Composite_by_Enchantedgal_Stock.jpg&ehk=SUHe7ZmNP9C2a52IdvhHeKUK4RbnfPNSDvun0y7WSfM%3d&risl=1&pid=ImgRaw&r=0");
+}
+
+.container {
+  opacity: 0.87;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  max-width: 800px;
+  align-self: center;
+}
+
 svg {
   max-width: 14px;
   cursor: pointer;
@@ -16,8 +43,7 @@ svg {
     font-size: 20px;
   } */
   svg {
-    height: 20px;
-    max-width: 30px;
+    max-width: 20px;
     cursor: pointer;
   }
 }
