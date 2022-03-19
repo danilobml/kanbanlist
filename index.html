@@ -13,41 +13,42 @@
   </head>
   <body>
     <!--Main Container-->
-    <div class="container p-4 border rounded-3 bg-light">
-      <!--Title-->
-      <h1 class="text-center display-5 display-md-3 fw-bold">Kanban List</h1>
+    <div class="container-fluid vertical-center">
+      <div class="container p-4 rounded-3 bg-light shadow-lg">
+        <!--Title-->
+        <h1 class="text-center display-5 display-md-3 fw-bold">Kanban List</h1>
 
-      <!--Input form to insert new tasks-->
-      <form id="new-form">
-        <div class="input-group">
-          <input id="new-input" class="form-control fs-4" type="text" placeholder="Insert new task:" />
-          <button id="addbutton" class="btn btn-danger" type="submit">+</button>
-        </div>
-      </form>
+        <!--Input form to insert new tasks-->
+        <form id="new-form">
+          <div class="input-group centered">
+            <input id="new-input" class="form-control fs-4" type="text" placeholder="Insert new task:" />
+            <button id="addbutton" class="btn btn-danger" type="submit">+</button>
+          </div>
+        </form>
 
-      <!--Lists of to do, ongoing and completed tasks-->
-      <p class="text-dark h5">(Click on the active tasks to edit them:)</p>
-      <div class="row">
-        <div class="col-sm-12 col-md-4 mt-2">
-          <h3 class="text-dark h2 fw-bold">To do Tasks:</h3>
-          <ul id="tasks"></ul>
+        <!--Lists of to do, ongoing and completed tasks-->
+        <div class="row">
+          <div class="col-sm-12 col-md-4 mt-2 text-md-center">
+            <h3 class="text-dark h2 fw-bold">To do Tasks:</h3>
+            <ul id="tasks"></ul>
+          </div>
+          <div class="col-sm-12 col-md-4 mt-2 text-md-center">
+            <h3 class="text-dark h2 fw-bold">Ongoing Tasks:</h3>
+            <ul id="tasks-ongoing"></ul>
+          </div>
+          <div class="col-sm-12 col-md-4 mt-2 text-md-center">
+            <h3 class="text-dark h2 fw-bold">Completed Tasks:</h3>
+            <ul id="comp-tasks"></ul>
+          </div>
         </div>
-        <div class="col-sm-12 col-md-4 mt-2">
-          <h3 class="text-dark h2 fw-bold">Ongoing Tasks:</h3>
-          <ul id="tasks-ongoing"></ul>
-        </div>
-        <div class="col-sm-12 col-md-4 mt-2">
-          <h3 class="text-dark h2 fw-bold">Completed Tasks:</h3>
-          <ul id="comp-tasks"></ul>
-        </div>
-      </div>
 
-      <!--Clear Completed Button-->
-      <div class="row">
-        <div class="col"></div>
-        <div class="col">
-          <button id="clear" class="col btn-sm btn-success fs-6">Clear completed</button>
+        <!--Clear Completed Button-->
+        <div class="row text-md-center mt-2">
+          <div class="col">
+            <button id="clear" class="col btn-sm btn-success fs-6">Clear completed</button>
+          </div>
         </div>
+        <p class="text-dark mt-3 text-md-center">*Click on the active tasks to edit them.</p>
       </div>
     </div>
   </body>
